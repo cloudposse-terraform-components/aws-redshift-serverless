@@ -2,7 +2,7 @@
 tags:
 ---
 
-# Component: `redshift`
+# Component: `redshift-serverless`
 
 This component is responsible for provisioning Redshift clusters.
 
