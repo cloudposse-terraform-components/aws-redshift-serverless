@@ -84,8 +84,8 @@ variable "vpc_security_group_ids" {
 
 variable "base_capacity" {
   type        = number
-  default     = 128
-  description = "The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs)."
+  default     = 4
+  description = "The base data warehouse capacity (4 minimum) of the workgroup in Redshift Processing Units (RPUs)."
 }
 
 variable "config_parameter" {

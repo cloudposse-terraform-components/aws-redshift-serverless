@@ -3,7 +3,7 @@ name: "aws-redshift-serverless"
 github_repo: "cloudposse-terraform-components/aws-redshift-serverless"
 # Short description of this project
 description: |-
-  This component is responsible for provisioning Redshift clusters.
+  This component is responsible for provisioning Redshift Serverless clusters.
 
   ## Usage
 
@@ -14,13 +14,13 @@ description: |-
   ```yaml
   components:
     terraform:
-      redshift:
+      redshift-serverless:
         settings:
           spacelift:
             workspace_enabled: true
         vars:
           enabled: true
-          name: redshift
+          name: redshift-serverless
           admin_user: admin
           database_name: dev
 
@@ -72,7 +72,7 @@ description: |-
   | <a name="input_admin_password"></a> [admin\_password](#input\_admin\_password) | Password for the master DB user. Required unless a snapshot\_identifier is provided | `string` | `null` | no |
   | <a name="input_admin_user"></a> [admin\_user](#input\_admin\_user) | Username for the master DB user. Required unless a snapshot\_identifier is provided | `string` | `null` | no |
   | <a name="input_attributes"></a> [attributes](#input\_attributes) | ID element. Additional attributes (e.g. `workers` or `cluster`) to add to `id`,<br>in the order they appear in the list. New attributes are appended to the<br>end of the list. The elements of the list are joined by the `delimiter`<br>and treated as a single ID element. | `list(string)` | `[]` | no |
-  | <a name="input_base_capacity"></a> [base\_capacity](#input\_base\_capacity) | The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs). | `number` | `128` | no |
+  | <a name="input_base_capacity"></a> [base\_capacity](#input\_base\_capacity) | The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs). | `number` | `4` | no |
   | <a name="input_config_parameter"></a> [config\_parameter](#input\_config\_parameter) | A list of Redshift config parameters to apply to the workgroup. | <pre>list(object({<br>    parameter_key   = string<br>    parameter_value = any<br>  }))</pre> | `[]` | no |
   | <a name="input_context"></a> [context](#input\_context) | Single object for setting entire context at once.<br>See description of individual variables for details.<br>Leave string and numeric variables as `null` to use default value.<br>Individual variable settings (non-null) override settings in context object,<br>except for attributes, tags, and additional\_tag\_map, which are merged. | `any` | <pre>{<br>  "additional_tag_map": {},<br>  "attributes": [],<br>  "delimiter": null,<br>  "descriptor_formats": {},<br>  "enabled": true,<br>  "environment": null,<br>  "id_length_limit": null,<br>  "label_key_case": null,<br>  "label_order": [],<br>  "label_value_case": null,<br>  "labels_as_tags": [<br>    "unset"<br>  ],<br>  "name": null,<br>  "namespace": null,<br>  "regex_replace_chars": null,<br>  "stage": null,<br>  "tags": {},<br>  "tenant": null<br>}</pre> | no |
   | <a name="input_custom_sg_allow_all_egress"></a> [custom\_sg\_allow\_all\_egress](#input\_custom\_sg\_allow\_all\_egress) | Whether to allow all egress traffic or not | `bool` | `true` | no |
