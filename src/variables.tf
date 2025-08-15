@@ -84,8 +84,6 @@ variable "vpc_security_group_ids" {
 
 variable "base_capacity" {
   type        = number
-variable "base_capacity" {
-  type        = number
   default     = 4
   description = "The base data warehouse capacity (4 minimum) of the workgroup in Redshift Processing Units (RPUs)."
   validation {
