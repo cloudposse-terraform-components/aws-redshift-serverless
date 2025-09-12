@@ -4,8 +4,7 @@ tags:
 
 # Component: `redshift-serverless`
 
-This component is responsible for provisioning Redshift clusters.
-
+This component is responsible for provisioning Redshift Serverless clusters.
 ## Usage
 
 **Stack Level**: Regional
@@ -15,19 +14,19 @@ Here are some example snippets for how to use this component:
 ```yaml
 components:
   terraform:
-    redshift:
+    redshift-serverless:
       settings:
         spacelift:
           workspace_enabled: true
       vars:
         enabled: true
-        name: redshift
+        name: redshift-serverless
         admin_user: admin
         database_name: dev
-
 ```
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -73,7 +72,7 @@ components:
 | <a name="input_admin_password"></a> [admin\_password](#input\_admin\_password) | Password for the master DB user. Required unless a snapshot\_identifier is provided | `string` | `null` | no |
 | <a name="input_admin_user"></a> [admin\_user](#input\_admin\_user) | Username for the master DB user. Required unless a snapshot\_identifier is provided | `string` | `null` | no |
 | <a name="input_attributes"></a> [attributes](#input\_attributes) | ID element. Additional attributes (e.g. `workers` or `cluster`) to add to `id`,<br/>in the order they appear in the list. New attributes are appended to the<br/>end of the list. The elements of the list are joined by the `delimiter`<br/>and treated as a single ID element. | `list(string)` | `[]` | no |
-| <a name="input_base_capacity"></a> [base\_capacity](#input\_base\_capacity) | The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs). | `number` | `128` | no |
+| <a name="input_base_capacity"></a> [base\_capacity](#input\_base\_capacity) | The base data warehouse capacity (4 minimum) of the workgroup in Redshift Processing Units (RPUs). | `number` | `4` | no |
 | <a name="input_config_parameter"></a> [config\_parameter](#input\_config\_parameter) | A list of Redshift config parameters to apply to the workgroup. | <pre>list(object({<br/>    parameter_key   = string<br/>    parameter_value = any<br/>  }))</pre> | `[]` | no |
 | <a name="input_context"></a> [context](#input\_context) | Single object for setting entire context at once.<br/>See description of individual variables for details.<br/>Leave string and numeric variables as `null` to use default value.<br/>Individual variable settings (non-null) override settings in context object,<br/>except for attributes, tags, and additional\_tag\_map, which are merged. | `any` | <pre>{<br/>  "additional_tag_map": {},<br/>  "attributes": [],<br/>  "delimiter": null,<br/>  "descriptor_formats": {},<br/>  "enabled": true,<br/>  "environment": null,<br/>  "id_length_limit": null,<br/>  "label_key_case": null,<br/>  "label_order": [],<br/>  "label_value_case": null,<br/>  "labels_as_tags": [<br/>    "unset"<br/>  ],<br/>  "name": null,<br/>  "namespace": null,<br/>  "regex_replace_chars": null,<br/>  "stage": null,<br/>  "tags": {},<br/>  "tenant": null<br/>}</pre> | no |
 | <a name="input_custom_sg_allow_all_egress"></a> [custom\_sg\_allow\_all\_egress](#input\_custom\_sg\_allow\_all\_egress) | Whether to allow all egress traffic or not | `bool` | `true` | no |
@@ -129,10 +128,17 @@ components:
 | <a name="output_workgroup_endpoint"></a> [workgroup\_endpoint](#output\_workgroup\_endpoint) | The Redshift Serverless Endpoint. |
 | <a name="output_workgroup_id"></a> [workgroup\_id](#output\_workgroup\_id) | The Redshift Workgroup Name. |
 | <a name="output_workgroup_workgroup_id"></a> [workgroup\_workgroup\_id](#output\_workgroup\_workgroup\_id) | The Redshift Workgroup ID. |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- markdownlint-restore -->
+
 
 
 ## References
-  * [cloudposse/terraform-aws-components](https://github.com/cloudposse/terraform-aws-components/tree/master/modules/redshift) - Cloud Posse's upstream component
+
+
+- [cloudposse-terraform-components](https://github.com/orgs/cloudposse-terraform-components/repositories) - Cloud Posse's upstream component
+
+
+
 
 [<img src="https://cloudposse.com/logo-300x69.svg" height="32" align="right"/>](https://cpco.io/homepage?utm_source=github&utm_medium=readme&utm_campaign=cloudposse-terraform-components/aws-redshift-serverless&utm_content=)
+
